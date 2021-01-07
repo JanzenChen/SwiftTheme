@@ -28,9 +28,9 @@ class SelectThemeCell: BaseCell {
 //            case .red: fallthrough
 //            case .yello: fallthrough
 //            case .blue:
-//                return UIImage(named: imageStrs[MyThemes.current.rawValue])!
+//                return UIImage(named: imageStrs[MyThemes.current.rawValue])
 //            case .night:
-//                return UIImage(named: imageStrs[MyThemes.before.rawValue])!
+//                return UIImage(named: imageStrs[MyThemes.before.rawValue])
 //            }
 //        })
         
@@ -40,9 +40,9 @@ class SelectThemeCell: BaseCell {
             case .red: fallthrough
             case .yello: fallthrough
             case .blue:
-                return UIImage(named: imageStrs[MyThemes.current.rawValue])!
+                return UIImage(named: imageStrs[MyThemes.current.rawValue])
             case .night:
-                return UIImage(named: imageStrs[MyThemes.before.rawValue])!
+                return UIImage(named: imageStrs[MyThemes.before.rawValue])
             }
         })
         
