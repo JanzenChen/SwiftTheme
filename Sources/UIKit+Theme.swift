@@ -296,6 +296,13 @@ public extension UIImageView
         setThemePicker(self, "setAttributedTitle:forState:", statePicker)
     }
 }
+public extension UIButton
+{
+    func theme_setImage_config(_ config: ThemeConfigPicker<UIImage>?, forState state: UIControl.State) {
+        let statePicker = makeStatePicker(self, "setImage:forState:", config, state)
+        setThemePicker(self, "setImage:forState:", statePicker)
+    }
+}
 @objc public extension CALayer
 {
     var theme_backgroundColor: ThemeCGColorPicker? {
