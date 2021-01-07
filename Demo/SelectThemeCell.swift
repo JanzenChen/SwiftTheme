@@ -22,7 +22,7 @@ class SelectThemeCell: BaseCell {
         
         /// 动态配置某个模式下的图片
         let imageStrs = ["icon_theme_red", "icon_theme_yellow", "icon_theme_blue", "icon_theme_light"]
-        /// 方法一: 缺点, 不能兼容OC, 但可以拓展到所有设置
+        /// 方法一: 缺点, 不能兼容OC
 //        themeIcon.theme_image_config = ThemeConfigPicker(config: { () -> UIImage? in
 //            switch MyThemes.current {
 //            case .red: fallthrough
@@ -34,7 +34,7 @@ class SelectThemeCell: BaseCell {
 //            }
 //        })
         
-        /// 方法二: 缺点: 需要写硬代码"setImage:", 不方便使用
+        /// 方法二: 缺点: 需要写硬代码"setImage:"及闭包返回类型的容错问题, 不方便使用
         let picker = ThemePicker(v: { () -> UIImage? in
             switch MyThemes.current {
             case .red: fallthrough
