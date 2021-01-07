@@ -250,15 +250,6 @@ import UIKit
         set { setThemePicker(self, "setImage:", newValue) }
     }
 }
-
-public extension UIImageView
-{
-    var theme_image_config: ThemeConfigPicker<UIImage>? {
-        get { return getThemePicker(self, "setImage:") as? ThemeConfigPicker<UIImage>}
-        set { setThemePicker(self, "setImage:", newValue) }
-    }
-}
-
 @objc public extension UIActivityIndicatorView
 {
     var theme_color: ThemeColorPicker? {
@@ -294,13 +285,6 @@ public extension UIImageView
     func theme_setAttributedTitle(_ picker: ThemeAttributedStringPicker?, forState state: UIControl.State) {
         let statePicker = makeStatePicker(self, "setAttributedTitle:forState:", picker, state)
         setThemePicker(self, "setAttributedTitle:forState:", statePicker)
-    }
-}
-public extension UIButton
-{
-    func theme_setImage_config(_ config: ThemeConfigPicker<UIImage>?, forState state: UIControl.State) {
-        let statePicker = makeStatePicker(self, "setImage:forState:", config, state)
-        setThemePicker(self, "setImage:forState:", statePicker)
     }
 }
 @objc public extension CALayer
