@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftTheme
 
 class SelectThemeCell: BaseCell {
     
@@ -17,7 +18,35 @@ class SelectThemeCell: BaseCell {
         super.awakeFromNib()
         
         title.theme_textColor = GlobalPicker.textColor
-        themeIcon.theme_image = ["icon_theme_red", "icon_theme_yellow", "icon_theme_blue", "icon_theme_light"]
+//        themeIcon.theme_image = ["icon_theme_red", "icon_theme_yellow", "icon_theme_blue", "icon_theme_light"]
+        
+        /// 动态配置某个模式下的图片
+        let imageStrs = ["icon_theme_red", "icon_theme_yellow", "icon_theme_blue", "icon_theme_light"]
+        /// 方法一: 缺点, 不能兼容OC, 但可以拓展到所有设置
+//        themeIcon.theme_image_config = ThemeConfigPicker(config: { () -> UIImage? in
+//            switch MyThemes.current {
+//            case .red: fallthrough
+//            case .yello: fallthrough
+//            case .blue:
+//                return UIImage(named: imageStrs[MyThemes.current.rawValue])!
+//            case .night:
+//                return UIImage(named: imageStrs[MyThemes.before.rawValue])!
+//            }
+//        })
+        
+        /// 方法二: 缺点: 需要写硬代码"setImage:", 不方便使用
+        let picker = ThemePicker(v: { () -> UIImage? in
+            switch MyThemes.current {
+            case .red: fallthrough
+            case .yello: fallthrough
+            case .blue:
+                return UIImage(named: imageStrs[MyThemes.current.rawValue])!
+            case .night:
+                return UIImage(named: imageStrs[MyThemes.before.rawValue])!
+            }
+        })
+        
+        ThemePicker.setThemePicker(themeIcon, "setImage:", picker)
     }
 
 }

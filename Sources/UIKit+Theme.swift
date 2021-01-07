@@ -23,6 +23,22 @@ import UIKit
         set { setThemePicker(self, "setTintColor:", newValue) }
     }
 }
+//public extension UIView {
+//    var theme_alpha_config: ThemeConfigPicker<Float>? {
+//        get { return getThemePicker(self, "setAlpha:") as? ThemeConfigPicker<Float>}
+//        set { setThemePicker(self, "setAlpha:", newValue) }
+//    }
+//    var theme_backgroundColor_config: ThemeConfigPicker<UIColor>? {
+//        get { return getThemePicker(self, "setBackgroundColor:") as? ThemeConfigPicker<UIColor>}
+//        set { setThemePicker(self, "setBackgroundColor:", newValue) }
+//    }
+//    var theme_tintColor_config: ThemeConfigPicker<UIColor>? {
+//        get { return getThemePicker(self, "setTintColor:") as? ThemeConfigPicker<UIColor>}
+//        set { setThemePicker(self, "setTintColor:", newValue) }
+//    }
+//}
+
+
 @objc public extension UIApplication
 {
     #if os(iOS)
@@ -32,6 +48,7 @@ import UIKit
     }
     #endif
 }
+
 @objc public extension UIBarItem
 {
     var theme_image: ThemeImagePicker? {
@@ -225,13 +242,23 @@ import UIKit
         set { setThemePicker(self, "setCurrentPageIndicatorTintColor:", newValue) }
     }
 }
+
 @objc public extension UIImageView
 {
-    var theme_image: ThemeImagePicker? {
+    @objc var theme_image: ThemeImagePicker? {
         get { return getThemePicker(self, "setImage:") as? ThemeImagePicker }
         set { setThemePicker(self, "setImage:", newValue) }
     }
 }
+
+public extension UIImageView
+{
+    var theme_image_config: ThemeConfigPicker<UIImage>? {
+        get { return getThemePicker(self, "setImage:") as? ThemeConfigPicker<UIImage>}
+        set { setThemePicker(self, "setImage:", newValue) }
+    }
+}
+
 @objc public extension UIActivityIndicatorView
 {
     var theme_color: ThemeColorPicker? {
